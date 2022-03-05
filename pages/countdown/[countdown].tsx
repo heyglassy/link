@@ -28,7 +28,7 @@ const Countdown: NextPage = () => {
     if (!countdown) return;
     if (!form) router.push("/404");
     if (!futureDate(new Date(form!.date).getTime())) router.push(form!.link);
-  }, [router, form]);
+  }, [router, form, countdown]);
 
   if (!countdown || !form) return null;
 
