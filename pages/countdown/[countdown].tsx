@@ -34,12 +34,17 @@ const Countdown: NextPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-      <Down date={new Date(form!.date).getTime()} />
+      <Down
+        date={new Date(form!.date).getTime()}
+        className="font-bold"
+        onComplete={() => router.push(form.link)}
+      />
       {typeof window !== "undefined" && (
         <input
           type="button"
-          value="copy link"
+          value="copy this link"
           onClick={() => copy(window.location.href)}
+          className="border rounded bg-gradient-to-r from-cyan-500 to-blue-500 p-1 font-bold text-white cursor-pointer"
         />
       )}
     </div>
