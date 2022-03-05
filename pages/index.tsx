@@ -4,6 +4,7 @@ import { useState } from "react";
 import superjson from "superjson";
 import CryptoJS from "crypto-js";
 import { useRouter } from "next/router";
+import Down from "react-countdown";
 
 /**
  * Date picker
@@ -41,7 +42,9 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <h1>{form.date}</h1>
+      {form.valid && (
+        <Down date={new Date(form!.date).getTime()} autoStart={false} />
+      )}
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -51,11 +54,12 @@ const Home: NextPage = () => {
         <input
           type="text"
           onChange={(e) => {
+            const time = chrono.parseDate(e.target.value);
             chrono.parseDate(e.target.value) &&
               setForm({
                 ...form,
-                date: chrono.parseDate(e.target.value).toString(),
-                valid: futureDate(chrono.parseDate(e.target.value).getTime()),
+                date: time.toString(),
+                valid: futureDate(time.getTime()),
               });
           }}
           minLength={1}

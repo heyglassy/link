@@ -15,7 +15,7 @@ const futureDate = (date: number) => {
   return date > Date.now();
 };
 
-const decrypt = (query: string) => {
+const decryptLink = (query: string) => {
   const cipher = CryptoJS.enc.Hex.parse(query).toString(CryptoJS.enc.Utf8);
   const form = CryptoJS.AES.decrypt(
     cipher,
@@ -29,13 +29,15 @@ const Countdown: NextPage = () => {
   const router = useRouter();
   const { countdown }: any = router.query;
 
-  const form = countdown ? decrypt(countdown) : null;
+  const form = countdown ? decryptLink(countdown) : null;
 
   useEffect(() => {
     if (!countdown) return;
     if (!form) router.push("/404");
     if (!futureDate(new Date(form!.date).getTime())) router.push(form!.link);
   }, [router, form]);
+
+  if (!countdown || !form) return null;
 
   return (
     <div>
