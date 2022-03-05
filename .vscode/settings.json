@@ -3,7 +3,7 @@
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
-  "eslint.enable": false,
+  "eslint.enable": true,
   "git.autofetch": true,
   "emmet.excludeLanguages": ["markdown", "typescript", "typescriptreact"],
   "editor.formatOnSave": true,
