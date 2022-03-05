@@ -46,7 +46,6 @@ const Home: NextPage = () => {
         onSubmit={(e) => {
           e.preventDefault();
           form.valid && router.push(`/countdown/${createLink(form)}`);
-          // form.valid && createLink(form);
         }}
       >
         <input

@@ -39,8 +39,7 @@ const Countdown: NextPage = () => {
 
   return (
     <div>
-      <h1>{countdown && decrypt(countdown)!.date}</h1>
-      <Down date={Date.now() + 10000} />
+      <Down date={new Date(form!.date).getTime()} />
     </div>
   );
 };
