@@ -4,16 +4,8 @@ import { useRouter } from "next/router";
 import superjson from "superjson";
 import CryptoJS from "crypto-js";
 import Down from "react-countdown";
-
-interface Form {
-  date: string;
-  link: string;
-  valid: boolean;
-}
-
-const futureDate = (date: number) => {
-  return date > Date.now();
-};
+import type { Form } from "../../types/form";
+import { futureDate } from "../../utils/utils";
 
 const decryptLink = (query: string) => {
   const cipher = CryptoJS.enc.Hex.parse(query).toString(CryptoJS.enc.Utf8);

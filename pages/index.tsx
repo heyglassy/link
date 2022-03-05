@@ -5,28 +5,8 @@ import superjson from "superjson";
 import CryptoJS from "crypto-js";
 import { useRouter } from "next/router";
 import Down from "react-countdown";
-
-/**
- * Date picker
- * Enter a date (ex. tomorrow at noon)
- * While entering, the result (renderer of date) will be null until the parser returns a date
- *
- * Form
- * Validate date is in future,
- * Validate that the link is a link.
- * Link should have a preview pane (similar to hyper link preview) (extra)
- * Date should display in a cool number font or something.
- */
-
-interface Form {
-  date: string;
-  link: string;
-  valid: boolean;
-}
-
-const futureDate = (date: number) => {
-  return date > Date.now();
-};
+import type { Form } from "../types/form";
+import { futureDate } from "../utils/utils";
 
 const createLink = (formData: Form) => {
   const cipher = CryptoJS.AES.encrypt(
