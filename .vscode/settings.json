@@ -1,0 +1,16 @@
+{
+    "prettier.enable": true,
+    "terminal.integrated.env.osx": {
+      "FIG_NEW_SESSION": "1"
+    },
+    "eslint.enable": false,
+    "git.autofetch": true,
+    "emmet.excludeLanguages": ["markdown", "typescript", "typescriptreact"],
+    "editor.formatOnSave": true,
+    "workbench.sideBar.location": "right",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[typescript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    }
+  }
+  
