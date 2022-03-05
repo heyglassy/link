@@ -6,6 +6,7 @@ import CryptoJS from "crypto-js";
 import Down from "react-countdown";
 import type { Form } from "../../types/form";
 import { futureDate } from "../../utils/utils";
+import copy from "copy-to-clipboard";
 
 const decryptLink = (query: string) => {
   const cipher = CryptoJS.enc.Hex.parse(query).toString(CryptoJS.enc.Utf8);
@@ -32,8 +33,15 @@ const Countdown: NextPage = () => {
   if (!countdown || !form) return null;
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center h-screen">
       <Down date={new Date(form!.date).getTime()} />
+      {typeof window !== "undefined" && (
+        <input
+          type="button"
+          value="copy link"
+          onClick={() => copy(window.location.href)}
+        />
+      )}
     </div>
   );
 };
