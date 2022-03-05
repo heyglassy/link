@@ -62,7 +62,9 @@ const Home: NextPage = () => {
           className={dateInput}
         />
         {!form.valid && parsedDate?.length > 0 && (
-          <h1 className="text-sm text-red-500">Date must be in the future</h1>
+          <h1 className="text-sm text-red-500 text-center">
+            Date must be in the future
+          </h1>
         )}
         <span className="font-medium text-slate-700">Link</span>
         <input
